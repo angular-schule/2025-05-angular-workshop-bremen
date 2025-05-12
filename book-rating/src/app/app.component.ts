@@ -9,7 +9,7 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
 
-  title = signal('Book Rating');
+  readonly title = signal('Book Rating');
 
   constructor() {
 
