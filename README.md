@@ -34,15 +34,12 @@ The entire installation will take about 30 minutes.
 
 1. **Node.js 18, 20, or 22** (latest minor version): [https://nodejs.org](https://nodejs.org)
 2. **Google Chrome:** [https://www.google.com/chrome/](https://www.google.com/chrome/)
-4. **Visual Studio Code:** [https://code.visualstudio.com](https://code.visualstudio.com)<br>
+   + [Angular DevTools](https://chrome.google.com/webstore/detail/angular-devtools/ienfalfjdbdpebioblfackkekamfmbnh)
+3. **Visual Studio Code:** [https://code.visualstudio.com](https://code.visualstudio.com)<br>
    _or_ another suitable IDE like **IntelliJ/WebStorm**
    + We recommend installing a selection of extensions for Visual Studio Code.  
      We’ve prepared an Extension Pack that sets everything up for you:  
      [Angular-Schule: Extension Pack (Visual Studio Code only)](https://marketplace.visualstudio.com/items?itemName=angular-schule.angular-schule-extension-pack)
-
-<!--
-   + [Angular DevTools](https://chrome.google.com/webstore/detail/angular-devtools/ienfalfjdbdpebioblfackkekamfmbnh)
--->
 
 ## 2.) Proxy?
 
