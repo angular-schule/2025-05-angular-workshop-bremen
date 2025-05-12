@@ -10,5 +10,5 @@ import { JsonPipe } from '@angular/common';
 })
 export class BookComponent {
 
-  book = input<Book>();
+  book = input.required<Book>();
 }
