@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -9,11 +9,10 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
 
-  // alter weg (mit Magie)
-  title = 'Book Rating';
+  title = signal('Book Rating');
 
   constructor() {
 
-    setTimeout(() => this.title = 'blubb', 2000);
+    setTimeout(() => this.title.set('Blubb'), 2000);
   }
 }
