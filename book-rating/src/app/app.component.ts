@@ -8,5 +8,12 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'book-rating';
+
+  // alter weg (mit Magie)
+  title = 'Book Rating';
+
+  constructor() {
+
+    setTimeout(() => this.title = 'blubb', 2000);
+  }
 }
