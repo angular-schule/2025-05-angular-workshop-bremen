@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { Book } from '../shared/book';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-book',
@@ -8,4 +10,5 @@ import { Component } from '@angular/core';
 })
 export class BookComponent {
 
+  book = input<Book>();
 }
