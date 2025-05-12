@@ -30,7 +30,5 @@ export class DashboardComponent {
       description: 'Setzt Standards',
       rating: 1
     }])
-
   }
-
 }
