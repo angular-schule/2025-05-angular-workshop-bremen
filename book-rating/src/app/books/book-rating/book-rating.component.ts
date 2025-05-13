@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-book-rating',
@@ -7,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrl: './book-rating.component.scss'
 })
 export class BookRatingComponent {
+
+  rating = input.required<number>();
+
+
+  // 1. Variante -- einfache Funktion
+  getStars() {
+    return new Array(this.rating());
+  }
 
 }

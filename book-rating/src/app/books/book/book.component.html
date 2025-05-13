@@ -1,6 +1,10 @@
 <h2
   [class]="{ red: book().title === 'Angular' }"
->{{ book().title }}</h2>
+>
+  {{ book().title }}
+  <app-book-rating [rating]="book().rating" />
+
+</h2>
 
 <p>
   {{ book().description }}
