@@ -10,33 +10,7 @@
       </h2>
     </div>
     <p>{{ book().description }}</p>
-
-    <!-- ACHTUNG: Schlechte Praxis!! -->
-    <!--
-    1. Doppelter Code
-    2. Logik im Template
-    3. Buch wird mutiert (immutability verletzt)
-    4. Single Responsibility Principle (SRP) verletzt
-    -->
-    <button class="btn btn-primary me-2" (click)="book().rating = book().rating - 1">-1</button>
-    <button class="btn btn-primary" (click)="book().rating = book().rating + 1">+1</button>
+    <button class="btn btn-primary me-2" (click)="doRateDown()">-1</button>
+    <button class="btn btn-primary" (click)="doRateUp()">+1</button>
   </div>
 </div>
-
-
-
-
-
-
-<!-- <h2
-  [class]="{ red: book().title === 'Angular' }"
->
-  {{ book().title }}
-  <app-book-rating [rating]="book().rating" />
-
-</h2>
-
-<p>
-  {{ book().description }}
-</p>
- -->

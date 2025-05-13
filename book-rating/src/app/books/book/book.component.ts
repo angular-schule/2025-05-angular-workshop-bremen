@@ -1,6 +1,5 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { Book } from '../shared/book';
-import { JsonPipe } from '@angular/common';
 import { BookRatingComponent } from "../book-rating/book-rating.component";
 
 @Component({
@@ -12,4 +11,16 @@ import { BookRatingComponent } from "../book-rating/book-rating.component";
 export class BookComponent {
 
   book = input.required<Book>();
+
+  rateUp = output<Book>();
+  rateDown = output<Book>();
+
+  doRateUp() {
+    this.rateUp.emit(this.book());
+  }
+
+  doRateDown() {
+    this.rateDown.emit(this.book());
+  }
+
 }
