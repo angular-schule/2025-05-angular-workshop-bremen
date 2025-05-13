@@ -1,4 +1,6 @@
-<h2>{{ book().title }}</h2>
+<h2
+  [class]="{ red: book().title === 'Angular' }"
+>{{ book().title }}</h2>
 
 <p>
   {{ book().description }}
