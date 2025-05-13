@@ -1,4 +1,34 @@
-<h2
+<!-- book.component.html -->
+<div class="card mb-4">
+  <div class="card-body bg-light">
+      <img class="img-thumbnail float-end" alt=""
+        src="https://api.angular.schule/avatar/{{ book().rating }}">
+    <div class="card-title">
+      <h2>
+        {{ book().title }}
+        <span class="badge bg-secondary">{{ book().rating }}</span>
+      </h2>
+    </div>
+    <p>{{ book().description }}</p>
+
+    <!-- ACHTUNG: Schlechte Praxis!! -->
+    <!--
+    1. Doppelter Code
+    2. Logik im Template
+    3. Buch wird mutiert (immutability verletzt)
+    4. Single Responsibility Principle (SRP) verletzt
+    -->
+    <button class="btn btn-primary me-2" (click)="book().rating = book().rating - 1">-1</button>
+    <button class="btn btn-primary" (click)="book().rating = book().rating + 1">+1</button>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- <h2
   [class]="{ red: book().title === 'Angular' }"
 >
   {{ book().title }}
@@ -9,4 +39,4 @@
 <p>
   {{ book().description }}
 </p>
-
+ -->
