@@ -15,6 +15,7 @@ export class DashboardComponent {
 
   constructor() {
 
+    // 🦆
     this.books.set([{
       isbn: '000',
       title: 'Angular',
