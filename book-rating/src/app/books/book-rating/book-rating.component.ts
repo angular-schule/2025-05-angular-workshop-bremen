@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, computed, effect, input, signal } from '@angular/core';
 
 @Component({
   selector: 'app-book-rating',
@@ -9,6 +9,7 @@ import { Component, input } from '@angular/core';
 export class BookRatingComponent {
 
   rating = input.required<number>();
+  test = signal<string>('Test');
 
 
   // 1. Variante -- einfache Funktion
@@ -16,4 +17,23 @@ export class BookRatingComponent {
     return new Array(this.rating());
   }
 
+  // 2. Variante -- computed Signal
+  getStarsComputed = computed(() => {
+
+    // this.test.set('TEST 2222'); // NICHT ERLAUBT!
+    return new Array(this.rating())
+  });
+
+  constructor() {
+
+    // 3. Variante -- effect (hier nicht notwendig)
+    effect(() => {
+
+      // nur im effect darf man andere Signals setzen
+      this.test.set('Test' + this.rating())
+    });
+  }
+
+
 }
+
