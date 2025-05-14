@@ -48,6 +48,11 @@ export class DashboardComponent {
 
   updateAndSort(ratedBook: Book) {
 
+    this.books.update(books => books
+      .map(b => b.isbn === ratedBook.isbn ? ratedBook : b)
+      .sort((a, b) => b.rating - a.rating));
+
+    /*
     const books = this.books();
 
     const newBooks = books
@@ -55,5 +60,6 @@ export class DashboardComponent {
       .sort((a, b) => b.rating - a.rating);
 
     this.books.set(newBooks);
+    */
   }
 }
