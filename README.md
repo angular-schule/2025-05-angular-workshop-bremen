@@ -7,11 +7,11 @@
 **Welcome – great to have you with us!**  
 In this repository, you will find all the preparation details and, during the workshop, the source code of our sample application.
 
-<!--
+
 # 🎮 NEW: RxJS Playground
 
 You can either  
-* download the code as a ZIP file: [rxjs-playground.zip](https://github.com/user-attachments/files/18552469/rxjs-playground.zip)<br>**or**<br>
+* download the code as a ZIP file: [rxjs-playground.zip](https://cdn.angular.schule/slides/likjhgzuzhjktzrghj-bremen/rxjs-playground.zip)<br>**or**<br>
 * clone this repository using Git and switch to the `rxjs-playground` folder.
 
 ```bash
@@ -22,7 +22,7 @@ ng serve
 
 Open the browser at [http://localhost:**4300**](http://localhost:4300) (!) to view the application.  
 The exercises are located in the folder `rxjs-playground/src/app/exercises/`.
--->
+
 
 
 # ✅ Preparation
