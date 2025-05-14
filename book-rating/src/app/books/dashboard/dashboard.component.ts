@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { Book } from '../shared/book';
 import { JsonPipe } from '@angular/common';
 import { BookComponent } from "../book/book.component";
@@ -8,7 +8,8 @@ import { BookRatingService } from '../shared/book-rating.service';
   selector: 'app-dashboard',
   imports: [JsonPipe, BookComponent],
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.scss'
+  styleUrl: './dashboard.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DashboardComponent {
 

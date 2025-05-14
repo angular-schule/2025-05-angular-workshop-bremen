@@ -1,4 +1,4 @@
-import { Component, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 import { Book } from '../shared/book';
 import { BookRatingComponent } from "../book-rating/book-rating.component";
 
@@ -6,7 +6,8 @@ import { BookRatingComponent } from "../book-rating/book-rating.component";
   selector: 'app-book',
   imports: [BookRatingComponent],
   templateUrl: './book.component.html',
-  styleUrl: './book.component.scss'
+  styleUrl: './book.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BookComponent {
 
