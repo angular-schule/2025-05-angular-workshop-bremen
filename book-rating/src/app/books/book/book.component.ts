@@ -1,10 +1,14 @@
 import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 import { Book } from '../shared/book';
 import { BookRatingComponent } from "../book-rating/book-rating.component";
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-book',
-  imports: [BookRatingComponent],
+  imports: [
+    BookRatingComponent,
+    RouterLink
+  ],
   templateUrl: './book.component.html',
   styleUrl: './book.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
