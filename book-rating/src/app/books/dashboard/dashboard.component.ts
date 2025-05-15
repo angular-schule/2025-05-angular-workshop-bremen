@@ -3,10 +3,11 @@ import { Book } from '../shared/book';
 import { JsonPipe } from '@angular/common';
 import { BookComponent } from "../book/book.component";
 import { BookRatingService } from '../shared/book-rating.service';
+import { BookCreateComponent } from "../book-create/book-create.component";
 
 @Component({
   selector: 'app-dashboard',
-  imports: [JsonPipe, BookComponent],
+  imports: [BookComponent, BookCreateComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
