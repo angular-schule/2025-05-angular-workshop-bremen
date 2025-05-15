@@ -4,6 +4,7 @@ import { JsonPipe } from '@angular/common';
 import { BookComponent } from "../book/book.component";
 import { BookRatingService } from '../shared/book-rating.service';
 import { BookCreateComponent } from "../book-create/book-create.component";
+import { BookStoreService } from '../shared/book-store.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,26 +17,11 @@ export class DashboardComponent {
 
   readonly books = signal<Book[]>([]);
   readonly br = inject(BookRatingService);
+  readonly bs = inject(BookStoreService);
 
   constructor() {
 
-    // 🦆
-    this.books.set([{
-      isbn: '000',
-      title: 'Angular',
-      description: 'Tolles Buch (aber alt)',
-      rating: 5
-    }, {
-      isbn: '111',
-      title: 'jQuery',
-      description: 'Gnadenlos in den DOM',
-      rating: 3
-    }, {
-      isbn: '222',
-      title: 'React',
-      description: 'Setzt Standards',
-      rating: 1
-    }])
+    this.bs.getAll().subscribe(b => this.books.set(b));
   }
 
   doRateUp(book: Book) {
