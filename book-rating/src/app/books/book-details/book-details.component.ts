@@ -1,15 +1,27 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { BookStoreService } from '../shared/book-store.service';
+import { map, mergeMap } from 'rxjs';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-book-details',
-  imports: [],
+  imports: [RouterLink, JsonPipe],
   templateUrl: './book-details.component.html',
   styleUrl: './book-details.component.scss'
 })
 export class BookDetailsComponent {
 
-
   // geht nur mit withComponentInputBinding() in der app.config.ts
-  isbn = input.required<string>()
+  // isbn = input.required<string>();
+
+  router = inject(ActivatedRoute);
+  bs = inject(BookStoreService);
+
+  book = toSignal(this.router.paramMap.pipe(
+    map(paramMap => paramMap.get('isbn') || ''),
+    mergeMap(isbn => this.bs.getSingle(isbn))
+  ))
 
 }
