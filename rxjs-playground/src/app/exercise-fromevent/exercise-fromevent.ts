@@ -21,9 +21,12 @@ export class ExerciseFromevent {
 
     fromEvent<{ target: Window }>(window, 'resize').pipe(
 
-      map(e => e.target.innerWidth)
+      debounceTime(400),
+      map(e => e.target.innerWidth),
+      startWith(window.innerWidth),
+      startWith(999),
 
-    ).subscribe(x => console.log(x))
+    ).subscribe(x => this.currentWidth.set(x))
 
     /******************************/
   }
