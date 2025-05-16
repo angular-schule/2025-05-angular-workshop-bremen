@@ -1,6 +1,6 @@
 import { Component, OnDestroy, inject, signal } from '@angular/core';
 import { AsyncPipe, DecimalPipe, JsonPipe } from '@angular/common';
-import { Subject, BehaviorSubject, ReplaySubject, Observable, share, takeUntil, shareReplay } from 'rxjs';
+import { Subject, BehaviorSubject, ReplaySubject, Observable, share, takeUntil, shareReplay, tap } from 'rxjs';
 
 import { MeasureValuesService } from './measure-values.service';
 import { HistoryWindow } from '../shared/history-window/history-window';
@@ -31,8 +31,9 @@ export class ExerciseMulticast implements OnDestroy {
 
     // 3. multicast (shareReplay) mit Cache
     this.measureValues$ = this.#mvs.getValues().pipe(
+      tap(console.log),
       shareReplay({
-        refCount: true,
+        refCount: false,
         bufferSize: 1
       })
     );
