@@ -8,10 +8,9 @@ import { HistoryWindow } from '../shared/history-window/history-window';
   templateUrl: './exercise-unsubscribe.ng.html',
   imports: [HistoryWindow]
 })
-export class ExerciseUnsubscribe implements OnDestroy {
+export class ExerciseUnsubscribe {
 
   logStream$ = new ReplaySubject<string | number>();
-  subcription: Subscription;
 
   /**
    * Öffne die Browser-Console: Dort siehst Du den Output eines Observables, das jede Sekunde einen Wert generiert.
@@ -26,22 +25,15 @@ export class ExerciseUnsubscribe implements OnDestroy {
   constructor() {
     const interval$ = timer(0, 1000);
 
-    this.subcription = interval$.pipe(
+    interval$.pipe(
 
-      /******************************/
-
-
-      /******************************/
+      takeUntilDestroyed()
 
     ).subscribe({
       next: e => this.log(e),
       error: err => this.log('❌ ERROR: ' + err),
       complete: () => this.log('✅ COMPLETE')
     });
-  }
-
-  ngOnDestroy() {
-    this.subcription.unsubscribe();
   }
 
   log(msg: string | number) {
