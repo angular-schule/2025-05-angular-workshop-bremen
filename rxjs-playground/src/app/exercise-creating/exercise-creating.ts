@@ -24,7 +24,11 @@ export class ExerciseCreating {
 
     /******************************/
 
-    
+    const observable = of('🙂', '😎', '🤯');
+
+    observable.subscribe(e => this.log(e));
+
+
     /******************************/
   }
 
