@@ -21,7 +21,7 @@ export class DashboardComponent {
 
   constructor() {
 
-    this.bs.getAll().subscribe(b => this.books.set(b));
+    // this.bs.getAll().subscribe(b => this.books.set(b));
   }
 
   doRateUp(book: Book) {
