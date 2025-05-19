@@ -1,4 +1,4 @@
-import { Component, ElementRef, Signal, signal, viewChild } from '@angular/core';
+import { Component, ElementRef, Signal, viewChild } from '@angular/core';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { fromEvent, concatMap, takeUntil, first, switchMap, map, Observable } from 'rxjs';
 
