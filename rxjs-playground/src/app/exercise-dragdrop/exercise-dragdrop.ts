@@ -1,6 +1,6 @@
-import { Component, ElementRef, signal, viewChild } from '@angular/core';
-import { toObservable } from '@angular/core/rxjs-interop';
-import { fromEvent, concatMap, takeUntil, first } from 'rxjs';
+import { Component, ElementRef, Signal, viewChild } from '@angular/core';
+import { toObservable, toSignal } from '@angular/core/rxjs-interop';
+import { fromEvent, concatMap, takeUntil, first, switchMap, map, Observable } from 'rxjs';
 
 @Component({
   templateUrl: './exercise-dragdrop.ng.html',
@@ -17,7 +17,8 @@ export class ExerciseDragdrop {
     concatMap(target => fromEvent<MouseEvent>(target.nativeElement, 'mousedown'))
   );
 
-  readonly targetPosition = signal({ x: 100, y: 80 });
+  readonly drag$: Observable<{ x: number; y: number }>;
+  readonly targetPosition: Signal<{ x: number; y: number }>;
 
   constructor() {
     /**
@@ -34,12 +35,19 @@ export class ExerciseDragdrop {
 
     /******************************/
 
+    this.drag$ = this.mouseDown$.pipe(
+      switchMap(() =>
+        this.mouseMove$.pipe(
+          map(moveEvent => ({ x: moveEvent.pageX, y: moveEvent.pageY })),
+          takeUntil(this.mouseUp$)
+        )
+      )
+    );
+
+    this.targetPosition = toSignal(this.drag$, {
+      initialValue: { x: 100, y: 80 }
+    });
     
     /******************************/
   }
-
-  setTargetPosition(event: MouseEvent) {
-    this.targetPosition.set({ x: event.pageX, y: event.pageY });
-  }
-
 }
